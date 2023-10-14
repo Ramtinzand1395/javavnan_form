@@ -3,6 +3,6 @@
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
   "routes": [
     { "src": "/(.*)", "dest": "/" },
-    { "src": "/(.*)", "dest": "/dash" }
+    { "src": "/dash", "dest": "/components/data/DeleteMe.jsx" }
   ]
 }
