@@ -8,8 +8,8 @@
     }
   ],
   "routes": [
-    { "src": "/https://javavnan-form-user.vercel.app", "dest": "/" },
-    { "src": "/https://javavnan-form-user.vercel.app/dash", "dest": "/dash" }
+    { "src": "https://javavnan-form-user.vercel.app", "dest": "/" },
+    { "src": "/dash", "dest": "/https://javavnan-form-user.vercel.app/dash" }
 
   ],
   "rewrites": [
