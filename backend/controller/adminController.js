@@ -118,7 +118,7 @@ exports.GetInfo = async (req, res) => {
 
 exports.CreateQrCode = (req, res) => {
   const { userId } = req.body;
-  const url = `https://javavnan-form-bqve-d5zle90mu-ramtinzand1395.vercel.app/login/${userId}`;
+  const url = `https://javavnan-form-bqve.vercel.app/login/${userId}`;
 
   QRcode.toDataURL(url, function (err, url) {
     console.log(err);
