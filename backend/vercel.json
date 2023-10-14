@@ -11,5 +11,11 @@
     { "src": "/login/(.*)", "dest": "/login/:userId" },
     { "src": "/dash", "dest": "/" },
     { "src": "/(.*)", "dest": "/" }
+  ],
+  "rewrites": [
+    {
+      "source": "/login/:userId*",
+      "destination": "https://https://javavnan-form-user.vercel.app/:login/:userId*"
+    }
   ]
 }
