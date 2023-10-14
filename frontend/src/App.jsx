@@ -3,6 +3,7 @@ import {
 } from "./components";
 import { Route, Routes } from "react-router-dom";
 import RegisterForm from "./components/RegisterForm";
+import DeleteMe from "./components/data/DeleteMe";
 
 const App = () => {
 
@@ -10,6 +11,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<RegisterForm />} />
       <Route path="/login/:userId" element={<ShowData />} />
+      <Route path="/dash" element={<DeleteMe />} />
+
     </Routes>
   );
 };

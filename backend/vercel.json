@@ -3,6 +3,6 @@
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
     "routes": [
       { "src": "/(.*)", "dest": "/" },
-      { "src": "^/login/([a-zA-Z0-9_-]+)$", "dest": "/login/:userId" }
+      { "src": "^/login/([a-zA-Z0-9_-]+)$", "dest": "/login" }
     ]
 }
