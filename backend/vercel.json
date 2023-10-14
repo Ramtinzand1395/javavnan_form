@@ -15,7 +15,7 @@
   "rewrites": [
     {
       "source": "/login/:userId",
-      "destination": "https://https://javavnan-form-user.vercel.app/:login/:userId"
+      "destination": "https://https://javavnan-form-user.vercel.app/login/:userId"
     },
     {
       "source": "/dash",
