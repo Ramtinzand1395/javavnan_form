@@ -8,18 +8,8 @@
     }
   ],
   "routes": [
-    { "src": "https://javavnan-form-user.vercel.app", "dest": "/" },
-    { "src": "/dash", "dest": "/https://javavnan-form-user.vercel.app/dash" }
-
-  ],
-  "rewrites": [
-    {
-      "source": "/login/:userId",
-      "destination": "https://javavnan-form-user.vercel.app/login/:userId"
-    },
-    {
-      "source": "https://javavnan-form-user.vercel.app/dash",
-      "destination": "/dash"
-    }
+    { "src": "/login/:userId", "dest": "https://javavnan-form-user.vercel.app/login/:userId" },
+    { "src": "/dash", "dest": "https://javavnan-form-user.vercel.app/dash" },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
