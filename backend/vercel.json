@@ -10,7 +10,7 @@
   "routes": [
     { "src": "/login/(.*)", "dest": "/login/:userId" },
     { "src": "/dash", "dest": "https://javavnan-form-user.vercel.app/dash" },
-    { "src": "/", "dest": "/" }
+    { "src": "/(.*)", "dest": "/dash" }
   ],
   "rewrites": [
     {
