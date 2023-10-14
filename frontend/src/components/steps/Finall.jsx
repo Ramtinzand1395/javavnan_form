@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { StepperContext } from "../context/StepperContext";
 import { createQRcodeService } from "../../services/userService";
+import { Link } from "react-router-dom";
 
 const Finall = () => {
   const { UserId } = useContext(StepperContext);
@@ -14,6 +15,8 @@ const Finall = () => {
     getinfo();
   }, [UserId]);
   return <div>
+          <Link to={`/login/${UserId}`}>ورود</Link>
+
     <img src={QrcodeImg} alt="QrcodeImg" />
   </div>;
 };

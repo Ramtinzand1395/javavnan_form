@@ -7,7 +7,6 @@ import PayUp from "./steps/PayUp";
 import Finall from "./steps/Finall";
 import Stepper from "./Stepper";
 import StepperControll from "./StepperControll";
-import { Link } from "react-router-dom";
 const RegisterForm = () => {
   const [currentStep, setcurrentStep] = useState(1);
   const [UserId, setUserId] = useState("");
@@ -68,7 +67,6 @@ const RegisterForm = () => {
           currentStep={currentStep}
         />
       )}
-      <Link to={"/login"}>ورود</Link>
     </div>
   );
 };
