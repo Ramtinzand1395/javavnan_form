@@ -17,7 +17,7 @@
     },
     {
       "source": "https://javavnan-form-user.vercel.app/dash",
-      "destination": "https://javavnan-form-user.vercel.app/dash"
+      "destination": "/dash"
     }
   ]
 }
