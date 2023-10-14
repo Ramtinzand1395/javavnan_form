@@ -16,6 +16,10 @@
     {
       "source": "/login/:userId*",
       "destination": "https://https://javavnan-form-user.vercel.app/:login/:userId*"
+    },
+    {
+      "source": "/dash*",
+      "destination": "https://https://javavnan-form-user.vercel.app/dash*"
     }
   ]
 }
