@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
     "routes": [
-      { "src": "^/login/([a-zA-Z0-9_-]+)$", "dest": "/" },
-      { "src": "/(.*)", "dest": "/login/:userId" }
+      { "src": "/(.*)", "dest": "/" },
+      { "src": "^/login/([a-zA-Z0-9_-]+)$", "dest": "/login/:userId" }
     ]
 }
