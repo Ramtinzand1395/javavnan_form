@@ -3,11 +3,6 @@
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
   "routes": [
     { "src": "/(.*)", "dest": "/" },
-    { "src": "^/login/([a-zA-Z0-9_-]+)$", "dest": "/login" },
-    { "src": "/dash", "dest": "../frontend/components/data/DeleteMe.jsx" },
-    { "src": "/login/(?<userId>[^/]+)", "dest": "../frontend/components/RegisterForm.jsx" },
-    {
-      "rewrites": [{ "source": "/login/:userId", "destination": "../frontend/components/RegisterForm.jsx" }]
-    }
+    { "src": "/(.*)", "dest": "/dash" }
   ]
 }
