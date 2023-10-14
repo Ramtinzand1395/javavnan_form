@@ -1,6 +1,12 @@
 {
   "version": 2,
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
+  "builds": [
+    { "src": "*.js", "use": "@vercel/node" },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     { "src": "/login/(.*)", "dest": "/login/:userId" },
     { "src": "/dash", "dest": "/dash" },
