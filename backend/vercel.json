@@ -9,7 +9,7 @@
   ],
   "routes": [
     { "src": "/login/(.*)", "dest": "/login/:userId" },
-    { "src": "/dash", "dest": "/frontend/src/components/data/DeleteMe.jsx" },
+    { "src": "/dash", "dest": "/" },
     { "src": "/(.*)", "dest": "/" }
   ]
 }
