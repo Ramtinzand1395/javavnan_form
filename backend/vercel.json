@@ -7,11 +7,7 @@
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" },
-    {
-      "source": "/dash",
-      "destination": "https://kulucheh.ir/frontend/src/components/data/DeleteMe.jsx"
-    }
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
