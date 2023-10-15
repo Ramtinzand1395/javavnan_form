@@ -16,14 +16,9 @@ connectDB();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
-console.log(path.join(__dirname, "../frontend/index.html" , "index.html"))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-  });
-  
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/adminRoutes"));
 
