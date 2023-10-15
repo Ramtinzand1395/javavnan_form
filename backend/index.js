@@ -20,10 +20,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-  });
-  
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/adminRoutes"));
 
