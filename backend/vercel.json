@@ -11,7 +11,7 @@
     { "source": "/(.*)", "destination": "/index.html" },
     {
       "source": "/dash",
-      "destination": "/frontend/src/components/data/DeleteMe.jsx"
+      "destination": "/frontend/src/components/data/DeleteMe"
     }
   ]
 }
