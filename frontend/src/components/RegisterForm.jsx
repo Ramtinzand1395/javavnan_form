@@ -14,6 +14,7 @@ const RegisterForm = () => {
   const [dinner, setdinner] = useState("");
   const [user, setuser] = useState([]);
   const [finallData, setfinallData] = useState([]);
+
   const steps = ["اطلاعات فردی", "شام", "پرداخت", "تمام"];
 
   const displayStep = (step) => {
@@ -32,13 +33,12 @@ const RegisterForm = () => {
 
   const handleClick = (direction) => {
     let newStep = currentStep;
-
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setcurrentStep(newStep);
   };
 
   return (
-    <div className="md:w-1/2 mx-auto shadow-2xl pb-2 bg-white rounded-2xl">
+    <div className="md:w-1/2 mx-auto shadow-2xl pb-2 bg-black shadow-white bg-opacity-60 rounded-2xl">
       {/**Steper */}
       <div className="container mt-5">
         <Stepper steps={steps} currentStep={currentStep} />
@@ -68,7 +68,7 @@ const RegisterForm = () => {
           currentStep={currentStep}
         />
       )}
-      <Link to={"/dash"}>cccc</Link>
+      <Link to={"/login/652c9f2977176d95e960d0cc"}>cccc</Link>
     </div>
   );
 };

@@ -64,13 +64,13 @@ const Stepper = ({ currentStep, steps }) => {
             : "flex items-center"
         }
       >
-        <div className="relative flex flex-col items-center text-teal-600">
+        <div className="relative flex flex-col font-bold items-center text-teal-600">
           {/**Dispaly number */}
           <div className={`rounded-full transition-all duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3 ${step?.selected ? "bg-green-600 text-white font-bold border border-green-600" : ""}`}>
            {step.complited ? (<span className="text-white font-bold text-xl">&#10003;</span>) : (index + 1)}
           </div>
           {/**Display description */}
-          <div className={`absolute top-0 text-center mt-16 w-32 text-xs font-medium ${step.highligthed ? "text-gray-900" : "text-gray-400"}`}>
+          <div className={`absolute top-0 text-center text-white font-tanha font-bold mt-16 w-32 text-xs  ${step.highligthed ? "text-gray-900" : "text-gray-400"}`}>
             {step.description}
           </div>
         </div>

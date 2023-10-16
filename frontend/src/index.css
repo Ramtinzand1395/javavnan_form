@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 body{
-    background-color: #f1f5f9;
+    background-image: url("./assets/large-2.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

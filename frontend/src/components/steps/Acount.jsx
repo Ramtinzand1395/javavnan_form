@@ -22,7 +22,6 @@ const Acount = () => {
       setloading(false);
     }
   };
-
   return (
     <div className="flex flex-col">
       <div className="w-full mx-2 flex-1">

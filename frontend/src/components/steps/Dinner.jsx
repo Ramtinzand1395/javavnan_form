@@ -5,39 +5,54 @@ import { toast } from "react-toastify";
 import { StepperContext } from "../context/StepperContext";
 const Dinner = () => {
   const { dinner, setdinner, UserId } = useContext(StepperContext);
-const [Totall, setTotall] = useState();
+  const [Totall, setTotall] = useState();
+  const [loading, setloading] = useState(false);
+
   const getPrice = (values) => {
     let totalPrice = 0;
     if (values.dinner === "nodinner") {
-      totalPrice += 50000;
+      totalPrice += 89000;
     } else if (values.dinner === "olvie") {
-      totalPrice += 100000;
+      totalPrice += 125000;
+    } else if (values.dinner === "calbas") {
+      totalPrice += 149000;
     }
 
     if (values.drinks === "cocakola") {
-      totalPrice += 7000;
+      totalPrice += 13000;
     } else if (values.drinks === "fanta") {
-      totalPrice += 6000;
+      totalPrice += 13000;
     } else if (values.drinks === "noDrink") {
       totalPrice += 0;
     }
 
-    setTotall(totalPrice)
+    setTotall(totalPrice);
     return totalPrice;
   };
   const registerDinner = async (values) => {
-    try {
-      const { data, status } = await dinnerService(values, UserId, Totall);
-      if (status === 201) {
-        toast.success(data.message);
-        setdinner(data.selectedDinner);
+    setloading(true);
+    if (!UserId) {
+      setloading(false);
+      toast.error("اطلاعات فردی شما ثبت نشده دوباره تلاش کنید.");
+    } else {
+      try {
+        console.log(Totall);
+        const { data, status } = await dinnerService(values, UserId, Totall);
+        if (status === 201) {
+          toast.success(data.message);
+          setdinner(data.selectedDinner);
+        }
+        setloading(false);
+      } catch (err) {
+        setloading(false);
+        toast.error(err.response.data.message);
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
     }
+    setloading(false);
   };
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col font-tanha">
       <div className="w-full mx-2 flex-1">
         <Formik
           initialValues={{
@@ -50,8 +65,16 @@ const [Totall, setTotall] = useState();
         >
           {({ values }) => (
             <Form>
+              <div className="mb-2">
+                <label
+                  className={` md:text-base font-bold text-xs mb-4 text-white text-start `}
+                >
+                  انتخاب شام
+                </label>
+              </div>
+
               <label
-                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-gray-400 py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+                className={` md:text-base font-medium text-xs mb-2 text-black  text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
               >
                 <Field
                   type="radio"
@@ -59,12 +82,14 @@ const [Totall, setTotall] = useState();
                   value="nodinner"
                   className="ml-2"
                 />
-                بدون شام (بلیط ورود به بزم به همراه پکیج)
-                <span className="text-red-500">50000 تومان</span>
+                بدون شام ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                <span className="text-red-500 mx-2 text-xs font-medium ">
+                  89,000 تومان
+                </span>
               </label>
 
               <label
-                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-gray-400 py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
               >
                 <Field
                   type="radio"
@@ -72,18 +97,37 @@ const [Totall, setTotall] = useState();
                   value="olvie"
                   className="ml-2"
                 />
-                شام الوویه (بلیط ورود به بزم به همراه پکیج)
-                <span className="text-red-500">100000 تومان</span>
-              </label>
-              {/**noshidani */}
-              <label
-                className={` md:text-base font-bold text-xs mb-2 text-black font-vazir text-start `}
-              >
-                انتخاب نوشیدنی
+                الوویه ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                <span className="text-red-500 mx-2 text-xs font-medium ">
+                  125,000 تومان
+                </span>
               </label>
 
               <label
-                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-gray-400 py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+              >
+                <Field
+                  type="radio"
+                  name="dinner"
+                  value="calbas"
+                  className="ml-2"
+                />
+                ساندویچ کالباس ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                <span className="text-red-500 mx-2 text-xs font-medium ">
+                  149,000 تومان
+                </span>
+              </label>
+              {/**noshidani */}
+              <div className="mb-2">
+                <label
+                  className={` md:text-base font-bold text-xs mb-4 text-white text-start `}
+                >
+                  انتخاب نوشیدنی
+                </label>
+              </div>
+
+              <label
+                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
               >
                 <Field
                   type="radio"
@@ -95,7 +139,7 @@ const [Totall, setTotall] = useState();
               </label>
 
               <label
-                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-gray-400 py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
               >
                 <Field
                   type="radio"
@@ -104,11 +148,13 @@ const [Totall, setTotall] = useState();
                   className="ml-2"
                 />
                 نوشابه مشکی کوکا کولا
-                <span className="text-red-500">7000 تومان</span>
+                <span className="text-red-500 mx-2 text-xs font-medium ">
+                  13,000 تومان
+                </span>
               </label>
 
               <label
-                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-gray-400 py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
+                className={` md:text-base font-medium text-xs mb-2 text-black font-vazir text-start bg-white py-1 px-2 rounded-lg flex items-center hover:bg-green-400 transition-all duration-200 ease-in-out`}
               >
                 <Field
                   type="radio"
@@ -117,18 +163,18 @@ const [Totall, setTotall] = useState();
                   className="ml-2"
                 />
                 نوشابه زرد فانتا
-                <span className="text-red-500">6000 تومان</span>
+                <span className="text-red-500 mx-2 text-xs font-medium ">
+                  13,000 تومان
+                </span>
               </label>
-
-              <div>شام شما: {values.dinner}</div>
-              <div>نوشیدنی شما: {values.drinks}</div>
               <div> مجموع قیمت پرداختی: {getPrice(values)}</div>
+
               <div className="mx-2 flex items-start flex-col">
                 <button
                   type="submit"
                   className="w-full py-2 text-white bg-blue-400 font-vazir mt-5 rounded-full hover:bg-blue-500 hover:border border-black transition-all delay-75"
                 >
-                  ثبت اطلاعات
+                  {loading ? " در حال ثبت شام " : " ثبت اطلاعات شام"}
                 </button>
               </div>
             </Form>
