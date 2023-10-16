@@ -11,7 +11,7 @@ const dinnerSchema = new mongoose.Schema({
   dinnerStatus: {
     type: String,
     default: null,
-    enum: ["nodinner", "olvie", null],
+    enum: ["nodinner", "olvie", "calbas" , null],
   },
   drinksStatus: {
     type: String,
