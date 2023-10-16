@@ -8,10 +8,10 @@ const Acount = () => {
   const { setUserId, user, setuser, UserId } = useContext(StepperContext);
   const [loading, setloading] = useState(false);
   const registerUser = async (values) => {
+    setloading(true);
     try {
       const { data, status } = await registerUserService(values, UserId);
       if (status === 201) {
-        setloading(true);
         toast.success(data.message);
         setUserId(data.userId);
         setuser(data.user);
@@ -19,6 +19,7 @@ const Acount = () => {
       setloading(false);
     } catch (err) {
       console.log(err);
+      setloading(false);
     }
   };
 
