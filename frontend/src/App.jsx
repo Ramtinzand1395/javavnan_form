@@ -1,5 +1,5 @@
 import { ShowData } from "./components";
-import { Routes, Route } from "react-router-dom";
+import {HashRouter as Routes, Route } from "react-router-dom";
 import RegisterForm from "./components/RegisterForm";
 import DeleteMe from "./components/data/DeleteMe";
 
