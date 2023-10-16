@@ -11,16 +11,15 @@ const ShowData = () => {
   useEffect(() => {
     const getinfo = async () => {
       const { data } = await getInfoService(userId);
-
       setuserInfo(data.user);
       setdinnerInfo(data.dinner);
     };
     getinfo();
   }, [userId]);
   return (
-    <div>
+    <div className="bg-white mx-auto container">
       {userInfo.map((user) => (
-        <div className="" key={user._id}>
+        <div className="text-red-500" key={user._id}>
           <p>
             اطلاعات فردی : {user.name} {user.lastname}
           </p>
