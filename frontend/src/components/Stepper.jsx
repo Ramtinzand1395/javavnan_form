@@ -14,7 +14,7 @@ const Stepper = ({ currentStep, steps }) => {
           ...newSteps[count],
           highligthed: true,
           selected: true,
-          complited: true,
+          complited: false,
         };
         count++;
       } else if (count < stepNumber) {

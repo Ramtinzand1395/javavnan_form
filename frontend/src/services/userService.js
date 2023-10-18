@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER_URL = "https://javavnan-form.vercel.app/api";
+const SERVER_URL = "http://localhost:5000/api";
 
 // @desc  registerUser
 // @route post http://localhost:5000/api/register-user

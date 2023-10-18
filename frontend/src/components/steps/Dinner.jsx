@@ -3,6 +3,7 @@ import { Field, Formik, Form } from "formik";
 import { dinnerService } from "../../services/userService";
 import { toast } from "react-toastify";
 import { StepperContext } from "../context/StepperContext";
+
 const Dinner = () => {
   const { dinner, setdinner, UserId } = useContext(StepperContext);
   const [Totall, setTotall] = useState();
@@ -13,9 +14,9 @@ const Dinner = () => {
     if (values.dinner === "nodinner") {
       totalPrice += 89000;
     } else if (values.dinner === "olvie") {
-      totalPrice += 125000;
+      totalPrice += 110000;
     } else if (values.dinner === "calbas") {
-      totalPrice += 149000;
+      totalPrice += 136000;
     }
 
     if (values.drinks === "cocakola") {
@@ -36,7 +37,6 @@ const Dinner = () => {
       toast.error("اطلاعات فردی شما ثبت نشده دوباره تلاش کنید.");
     } else {
       try {
-        console.log(Totall);
         const { data, status } = await dinnerService(values, UserId, Totall);
         if (status === 201) {
           toast.success(data.message);
@@ -99,7 +99,7 @@ const Dinner = () => {
                 />
                 الوویه ( بلیط ورودی به همراه فینگرفود و تم بزم )
                 <span className="text-red-500 mx-2 text-xs font-medium ">
-                  125,000 تومان
+                  110,000 تومان
                 </span>
               </label>
 
@@ -114,7 +114,7 @@ const Dinner = () => {
                 />
                 ساندویچ کالباس ( بلیط ورودی به همراه فینگرفود و تم بزم )
                 <span className="text-red-500 mx-2 text-xs font-medium ">
-                  149,000 تومان
+                  136,000 تومان
                 </span>
               </label>
               {/**noshidani */}
@@ -167,7 +167,10 @@ const Dinner = () => {
                   13,000 تومان
                 </span>
               </label>
-              <div> مجموع قیمت پرداختی: {getPrice(values)}</div>
+              <div className="opacity-0">
+                {" "}
+                مجموع قیمت پرداختی: {getPrice(values)}
+              </div>
 
               <div className="mx-2 flex items-start flex-col">
                 <button

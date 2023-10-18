@@ -16,10 +16,10 @@ connectDB();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/adminRoutes"));
 
 const port = process.env.PORT || 5000;

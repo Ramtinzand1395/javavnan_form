@@ -4,7 +4,6 @@ import { StepperContext } from "../components/context/StepperContext";
 import Acount from "./steps/Acount";
 import Dinner from "./steps/Dinner";
 import PayUp from "./steps/PayUp";
-import Finall from "./steps/Finall";
 import Stepper from "./Stepper";
 import StepperControll from "./StepperControll";
 import { Link } from "react-router-dom";
@@ -15,7 +14,7 @@ const RegisterForm = () => {
   const [user, setuser] = useState([]);
   const [finallData, setfinallData] = useState([]);
 
-  const steps = ["اطلاعات فردی", "شام", "پرداخت", "تمام"];
+  const steps = ["اطلاعات فردی", "شام", "پرداخت" , ""];
 
   const displayStep = (step) => {
     switch (step) {
@@ -25,16 +24,21 @@ const RegisterForm = () => {
         return <Dinner />;
       case 3:
         return <PayUp />;
-      case 4:
-        return <Finall />;
       default:
     }
   };
 
   const handleClick = (direction) => {
+    if (user.length === 0 ) {
+      alert("پرکردن فرم");
+      return;
+    }
+  
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
-    newStep > 0 && newStep <= steps.length && setcurrentStep(newStep);
+    if (newStep > 0 && newStep <= steps.length) {
+      setcurrentStep(newStep);
+    }
   };
 
   return (
@@ -68,7 +72,6 @@ const RegisterForm = () => {
           currentStep={currentStep}
         />
       )}
-      <Link to={"/login/652c9f2977176d95e960d0cc"}>cccc</Link>
     </div>
   );
 };

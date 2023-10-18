@@ -41,33 +41,6 @@ exports.GetUser = async (req, res) => {
   }
 };
 
-exports.updateAuthor = async (req, res) => {
-  const { name, description, authorId, AuthorImg, authorLastImg } = req.body;
-  const author = await Author.findById({ _id: authorId });
-  if (author) {
-    author.name = name;
-    author.description = description;
-    if (AuthorImg) {
-      const filename = path.basename(authorLastImg);
-      const filePath = `${appRoot}/public/uploads/authors/${filename}`;
-      try {
-        await fs.unlink(filePath);
-
-        author.authorImage = AuthorImg;
-        await author.save();
-        return res.status(201).json({ message: "تغییرات با موفقیت انجام شد." });
-      } catch (err) {
-        console.error("Error deleting file:", err);
-        return res.status(500).json({ message: "خطا در حذف فایل" });
-      }
-    } else {
-      await author.save();
-      return res.status(201).json({ message: "تغییرات با موفقیت انجام شد." });
-    }
-  } else {
-    res.status(400).json({ message: "نویسنده با این مشخصات پیدا نشد." });
-  }
-};
 
 //DINNER
 
@@ -103,7 +76,6 @@ exports.createDinner = async (req, res) => {
 //getDATA
 exports.GetInfo = async (req, res) => {
   const { userId } = req.body;
-
   try {
     const dinner = await Dinner.find({ userId });
     const user = await User.find({ _id: userId });

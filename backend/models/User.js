@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "notPayed",
-    enum: ["notPayed", "payed"],
+    default: "notArriwed",
+    enum: ["arriwed", "notArriwed"],
 },
   createdAt: {
     type: Date,

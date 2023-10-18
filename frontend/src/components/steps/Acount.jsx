@@ -3,15 +3,15 @@ import { Field, ErrorMessage, Formik, Form } from "formik";
 import { registerUserService } from "../../services/userService";
 import { toast } from "react-toastify";
 import { StepperContext } from "../context/StepperContext";
-
+import {userValidation} from "../validation/Validation"
 const Acount = () => {
   const { setUserId, user, setuser, UserId } = useContext(StepperContext);
   const [loading, setloading] = useState(false);
   const registerUser = async (values) => {
-    setloading(true);
     try {
       const { data, status } = await registerUserService(values, UserId);
       if (status === 201) {
+        setloading(true);
         toast.success(data.message);
         setUserId(data.userId);
         setuser(data.user);
@@ -22,14 +22,17 @@ const Acount = () => {
       setloading(false);
     }
   };
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col font-tanha">
       <div className="w-full mx-2 flex-1">
         <Formik
           initialValues={{
             name: user.name,
             lastname: user.lastname,
           }}
+          validationSchema={userValidation}
+
           onSubmit={(values) => {
             registerUser(values);
           }}
@@ -43,7 +46,7 @@ const Acount = () => {
             <Field
               name="name"
               type="text"
-              className="p-2 mb-5 px-2 appearance-none outline-none w-full text-white bg-white-400 focus:bg-gray-600 border border-black text-base rounded-lg"
+              className="p-2 mb-5 px-2 appearance-none outline-none w-full text-black bg-white-400 focus:bg-gray-600 border focus:text-white border-black text-base rounded-lg"
             />
 
             <ErrorMessage
@@ -58,7 +61,7 @@ const Acount = () => {
             <Field
               name="lastname"
               type="text"
-              className="p-2 mb-5 px-2 appearance-none outline-none w-full text-white bg-white-400 focus:bg-gray-600 border border-black text-base rounded-lg"
+              className="p-2 mb-5 px-2 appearance-none outline-none w-full text-black bg-white-400 focus:bg-gray-600 border focus:text-white border-black text-base rounded-lg"
             />
 
             <ErrorMessage
