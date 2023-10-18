@@ -109,7 +109,7 @@ const PayUp = () => {
       ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg">
         <p className="text-red-500 font-vazir text-center text-base">
-          متخریم به شما اعلام کنیم بار سرد با اعنواع نوشیدنی ها جهت استفاده
+          متخریم به شما اعلام کنیم بار سرد با انواع نوشیدنی ها جهت استفاده
           همکیشان عزیز راه اندازی شد
         </p>
       </div>
