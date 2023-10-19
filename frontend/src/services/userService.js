@@ -37,3 +37,10 @@ export const createQRcodeService = (userId) => {
   const url = `${SERVER_URL}/create-QRcode`;
   return axios.post(url, {userId});
 };
+
+// @desc  QRcode
+// @route get http://localhost:5000/api/create-QRcode
+export const getAllUsers = () => {
+  const url = `${SERVER_URL}/get-users`;
+  return axios.get(url);
+};
