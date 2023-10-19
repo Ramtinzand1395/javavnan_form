@@ -18,4 +18,8 @@ router.post("/get-info", adminController.GetInfo);
 
 //create QrCode
 router.post("/create-QRcode", adminController.CreateQrCode);
+
+
+//create QrCode
+router.get("/get-users", adminController.GetAllUser);
 module.exports = router;

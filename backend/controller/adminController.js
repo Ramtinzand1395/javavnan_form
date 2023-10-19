@@ -97,3 +97,14 @@ exports.CreateQrCode = (req, res) => {
     res.status(200).json({ message: "qrcode ساخته شد", url });
   });
 };
+
+
+
+exports.GetAllUser = async (req, res) => {
+  try {
+    const user = await User.find();
+    return res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
