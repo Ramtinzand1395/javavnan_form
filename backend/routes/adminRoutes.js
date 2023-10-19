@@ -31,5 +31,5 @@ router.post("/deliver-dinner", auththeIp, adminController.deliverDinner);
 router.get("/get-users", adminController.GetAllUser);
 
 //create QrCode
-router.delete("/delete-user/:userId",auththeIp, adminController.DeleteUser);
+router.delete("/delete-user/:userId", adminController.DeleteUser);
 module.exports = router;

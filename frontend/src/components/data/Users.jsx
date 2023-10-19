@@ -35,6 +35,7 @@ const Users = () => {
   const handleQRCode = async(userId) => {
       const { data: QRcode } = await createQRcodeService(userId);
       setQrcodeImg(QRcode.url);
+      toast.success(QRcode.message)
   };
   return (
     <div>
