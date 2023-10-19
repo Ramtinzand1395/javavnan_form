@@ -143,7 +143,7 @@ exports.deliverDinner = async (req, res) => {
 exports.GetAllUser = async (req, res) => {
   try {
     const user = await User.find();
-    return res.status(200).json([user]);
+    return res.status(200).json({user});
   } catch (err) {
     console.log(err);
   }

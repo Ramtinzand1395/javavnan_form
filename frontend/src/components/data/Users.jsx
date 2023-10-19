@@ -7,6 +7,7 @@ const Users = () => {
     useEffect(() => {
       const geUsers = async () => {
         const { data } = await getAllUsers();
+        console.log(data)
         setUsers(data.user);
       };
       geUsers();
@@ -18,6 +19,10 @@ const Users = () => {
       {Users.map((user)=>(
         <div className="" key={user._id}>
           {user.name}
+          {user.lastname}
+          {user._id}
+          {user.status}
+          {user.dinnerstatus}
         </div>
       ))}
     </div>;
