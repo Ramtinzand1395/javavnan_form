@@ -28,7 +28,7 @@ router.post("/deliver-dinner", auththeIp, adminController.deliverDinner);
 
 
 //create QrCode
-router.get("/get-users",auththeIp, adminController.GetAllUser);
+router.get("/get-users", adminController.GetAllUser);
 
 //create QrCode
 router.delete("/delete-user/:userId",auththeIp, adminController.DeleteUser);
