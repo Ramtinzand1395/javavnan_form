@@ -19,13 +19,12 @@ const Users = () => {
 
   if (admin === null)
     return (
-      <div className="text-white">شما مجوز ورود به این صفحه را ندارید.</div>
+      <div className="text-white w-auto">شما مجوز ورود به این صفحه را ندارید.</div>
     );
-console.log(Users)
-  const handleDelete = async (userId) => {
+
+    const handleDelete = async (userId) => {
     try {
       const { data } = await deleteUser(userId);
-      console.log(data)
       setdeleted(data.user);
       toast.success(data.message)
     } catch (err) {
@@ -39,7 +38,6 @@ console.log(Users)
   };
   return (
     <div>
-      hi there
       {Users.map((user) => (
         <div className="bg-white mt-2 " key={user._id}>
           <p>_id: {user._id}</p>
