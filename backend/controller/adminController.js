@@ -41,7 +41,6 @@ exports.GetUser = async (req, res) => {
   }
 };
 
-
 //DINNER
 
 exports.createDinner = async (req, res) => {
@@ -98,6 +97,47 @@ exports.CreateQrCode = (req, res) => {
   });
 };
 
+//IS ARRIWED
+exports.arriwed = async (req, res) => {
+  const { userId } = req.body;
+  try {
+    const user = await User.findById(userId);
+    if (user) {
+      user.status = "arriwed";
+      const selectedUser = await user.save();
+      res
+        .status(201)
+        .json({ message: "تغغیرات با موفقیت انجام شد.", selectedUser });
+    } else {
+      res
+        .status(404)
+        .json({ message: "کاربر پیدا نشد." });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//IS dinner
+exports.deliverDinner = async (req, res) => {
+  const { userId } = req.body;
+  try {
+    const user = await User.findById(userId);
+    if (user) {
+      user.dinnerstatus = "delliverd";
+      const selectedUser = await user.save();
+      res
+        .status(201)
+        .json({ message: "تغغیرات با موفقیت انجام شد.", selectedUser });
+    } else {
+      res
+        .status(404)
+        .json({ message: "کاربر پیدا نشد." });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 exports.GetAllUser = async (req, res) => {

@@ -1,6 +1,7 @@
 const { Router } = require("express");
 
 const adminController = require("../controller/adminController");
+const { auththeIp } = require("../middlewares/auth");
 
 const router = new Router();
 
@@ -18,6 +19,13 @@ router.post("/get-info", adminController.GetInfo);
 
 //create QrCode
 router.post("/create-QRcode", adminController.CreateQrCode);
+
+//create QrCode
+router.post("/is-arriwed", auththeIp, adminController.arriwed);
+
+//create QrCode
+router.post("/deliver-dinner", auththeIp, adminController.deliverDinner);
+
 
 
 //create QrCode
