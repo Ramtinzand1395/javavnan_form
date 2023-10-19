@@ -7,7 +7,7 @@ const Users = () => {
     useEffect(() => {
       const geUsers = async () => {
         const { data } = await getAllUsers();
-        setUsers(data);
+        setUsers(data.user);
       };
       geUsers();
     }, []);
