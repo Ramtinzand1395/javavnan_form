@@ -10,8 +10,8 @@ const Users = () => {
     };
     geUsers();
   }, []);
-  const user = localStorage.getItem("admin");
-  if (user.isAdmin === false)
+  const admin = localStorage.getItem("admin");
+  if (admin === false)
   return (
     <div className="text-white">شما مجوز ورود به این صفحه را ندارید.</div>
   );
