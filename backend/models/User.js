@@ -32,6 +32,9 @@ dinnerstatus: {
   default: "notdelliverd",
   enum: ["delliverd", "notdelliverd"],
 },
+QRCode:{
+  type: String,
+},
   createdAt: {
     type: Date,
     default: Date.now,

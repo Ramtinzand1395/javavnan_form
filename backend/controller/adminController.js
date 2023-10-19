@@ -87,13 +87,16 @@ exports.GetInfo = async (req, res) => {
 
 //QR CODE
 
-exports.CreateQrCode = (req, res) => {
+exports.CreateQrCode = async(req, res) => {
   const { userId } = req.body;
-  const url = `https://javavnan-form-user.vercel.app/login/${userId}`;
+  const url = `https://kulucheh.ir/login/${userId}`;
+  const user = await User.findById(userId);
 
-  QRcode.toDataURL(url, function (err, url) {
+  QRcode.toDataURL(url, async function (err, url) {
     console.log(err);
-    res.status(200).json({ message: "qrcode ساخته شد", url });
+    user.QRCode = url;
+    await user.save();
+    res.status(200).json({ message: "qrcode ساخته شد", url , user });
   });
 };
 
@@ -144,6 +147,19 @@ exports.GetAllUser = async (req, res) => {
   try {
     const user = await User.find();
     return res.status(200).json({user});
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.DeleteUser = async (req, res) => {
+  const userId = req.params.userId;
+  try {
+    const user = await User.findByIdAndRemove(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'کاربر پیدا نشد.' });
+    }
+    return res.status(200).json(user);
   } catch (err) {
     console.log(err);
   }

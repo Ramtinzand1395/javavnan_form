@@ -58,3 +58,11 @@ export const getAllUsers = () => {
   const url = `${SERVER_URL}/get-users`;
   return axios.get(url);
 };
+
+// @desc  QRcode
+// @route get http://localhost:5000/api/create-QRcode
+export const deleteUser = (userId) => {
+  console.log(userId)
+  const url = `${SERVER_URL}/delete-user/${userId}`;
+  return axios.delete(url);
+};
