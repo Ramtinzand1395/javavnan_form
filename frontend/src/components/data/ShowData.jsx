@@ -22,7 +22,7 @@ const ShowData = () => {
     };
     getinfo();
   }, [userId]);
-console.log(localStorage.getItem("admin" , "local"))
+
   const alterDinner = (dinner) => {
     let DinnerName = "";
     let DrinkName = "";
