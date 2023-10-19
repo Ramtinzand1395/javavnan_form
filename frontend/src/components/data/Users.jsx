@@ -11,6 +11,7 @@ const Users = () => {
       };
       geUsers();
     }, []);
+    console.log("first")
     return <div>
         hi
       {Users.map((user)=>(
