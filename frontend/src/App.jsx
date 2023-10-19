@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<RegisterForm />} />
-      <Route path="admin/get-users" element={<DeleteMe />} />
+      <Route path="/admin/get-users" element={<DeleteMe />} />
       <Route path="/login/:userId" element={<ShowData />} />
       <Route path="/dash" element={<DeleteMe />} />
       <Route path="/admin-login" element={<AdminLogin />} />
