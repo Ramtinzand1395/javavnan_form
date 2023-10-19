@@ -36,7 +36,7 @@ console.log(Users)
   };
   return (
     <div>
-      hi
+      hi there
       {Users.map((user) => (
         <div className="bg-white mt-2 " key={user._id}>
           <p>_id: {user._id}</p>
