@@ -28,8 +28,8 @@ router.post("/deliver-dinner", auththeIp, adminController.deliverDinner);
 
 
 //create QrCode
-router.get("/get-users", adminController.GetAllUser);
+router.get("/get-users",auththeIp, adminController.GetAllUser);
 
 //create QrCode
-router.delete("/delete-user/:userId", adminController.DeleteUser);
+router.delete("/delete-user/:userId",auththeIp, adminController.DeleteUser);
 module.exports = router;
