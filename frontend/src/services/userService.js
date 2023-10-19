@@ -56,5 +56,5 @@ export const deliverDinner = (userId) => {
 // @route get http://localhost:5000/api/create-QRcode
 export const getAllUsers = () => {
   const url = `${SERVER_URL}/get-users`;
-  return axios.post(url);
+  return axios.get(url);
 };

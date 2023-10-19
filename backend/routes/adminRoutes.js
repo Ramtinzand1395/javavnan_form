@@ -29,5 +29,5 @@ router.post("/deliver-dinner", auththeIp, adminController.deliverDinner);
 
 
 //create QrCode
-router.post("/get-users", adminController.GetAllUser);
+router.get("/get-users", adminController.GetAllUser);
 module.exports = router;
