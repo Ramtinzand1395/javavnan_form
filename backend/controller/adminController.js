@@ -159,7 +159,7 @@ exports.DeleteUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'کاربر پیدا نشد.' });
     }
-    return res.status(200).json(user);
+    return res.status(200).json({user , message:"کاربر حذف شد."});
   } catch (err) {
     console.log(err);
   }

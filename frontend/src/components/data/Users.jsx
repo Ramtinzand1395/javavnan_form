@@ -1,5 +1,6 @@
 import  { useEffect, useState } from "react";
 import { createQRcodeService, deleteUser, getAllUsers } from "../../services/userService";
+import { toast } from "react-toastify";
 
 const Users = () => {
   
@@ -24,7 +25,9 @@ console.log(Users)
   const handleDelete = async (userId) => {
     try {
       const { data } = await deleteUser(userId);
-      setdeleted(data)
+      console.log(data)
+      setdeleted(data.user);
+      toast.success(data.message)
     } catch (err) {
       console.log(err);
     }
