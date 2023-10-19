@@ -11,7 +11,8 @@ const Users = () => {
     geUsers();
   }, []);
   const admin = localStorage.getItem("admin");
-  if (admin === false)
+  console.log(admin)
+  if (admin === null)
   return (
     <div className="text-white">شما مجوز ورود به این صفحه را ندارید.</div>
   );
