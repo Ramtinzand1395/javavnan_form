@@ -3,26 +3,22 @@ import { getAllUsers } from '../../services/userService';
 
 const Users = () => {
     const [Users, setUsers] = useState([]);
-    console.log(Users,"asd")
     useEffect(() => {
       const geUsers = async () => {
         const { data } = await getAllUsers();
-        console.log(data)
         setUsers(data.user);
       };
       geUsers();
     }, []);
-    console.log("first")
-    console.log(Users);
     return <div>
         hi
       {Users.map((user)=>(
-        <div className="" key={user._id}>
-          {user.name}
-          {user.lastname}
-          {user._id}
-          {user.status}
-          {user.dinnerstatus}
+        <div className="bg-white mt-2 " key={user._id}>
+         status: {user.status}
+         name: {user.name}
+         lastname: {user.lastname}
+         _id: {user._id}
+         dinnerstatus: {user.dinnerstatus}
         </div>
       ))}
     </div>;
