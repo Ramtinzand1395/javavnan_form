@@ -42,5 +42,5 @@ export const createQRcodeService = (userId) => {
 // @route get http://localhost:5000/api/create-QRcode
 export const getAllUsers = () => {
   const url = `${SERVER_URL}/get-users`;
-  return axios.get(url);
+  return axios.post(url);
 };

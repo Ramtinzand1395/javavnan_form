@@ -21,5 +21,5 @@ router.post("/create-QRcode", adminController.CreateQrCode);
 
 
 //create QrCode
-router.get("/get-users", adminController.GetAllUser);
+router.post("/get-users", adminController.GetAllUser);
 module.exports = router;
