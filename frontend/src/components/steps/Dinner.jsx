@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import { dinnerService } from "../../services/userService";
 import { toast } from "react-toastify";
 import { StepperContext } from "../context/StepperContext";
+import { dinnerValidation } from "../validation/Validation";
 
 const Dinner = () => {
   const { dinner, setdinner, UserId } = useContext(StepperContext);
@@ -59,6 +60,7 @@ const Dinner = () => {
             dinner: dinner.dinnerStatus,
             drinks: dinner.drinksStatus,
           }}
+          validationSchema={dinnerValidation}
           onSubmit={(values) => {
             registerDinner(values);
           }}
@@ -117,6 +119,8 @@ const Dinner = () => {
                   136,000 تومان
                 </span>
               </label>
+              <ErrorMessage name="dinner" component="div" className="text-red-500 text-xs" />
+
               {/**noshidani */}
               <div className="mb-2">
                 <label
@@ -167,6 +171,8 @@ const Dinner = () => {
                   13,000 تومان
                 </span>
               </label>
+              <ErrorMessage name="drinks" component="div" className="text-red-500 text-xs" />
+
               <div className="opacity-0">
                 {" "}
                 مجموع قیمت پرداختی: {getPrice(values)}

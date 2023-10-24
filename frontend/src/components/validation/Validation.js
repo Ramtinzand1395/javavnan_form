@@ -1,15 +1,14 @@
 import * as Yup from "yup";
 
 export const dinnerValidation = Yup.object().shape({
-  dinnerStatus: Yup.mixed().oneOf(
+  dinner: Yup.mixed().oneOf(
     ["nodinner", "olvie", "calbas", null],
     "یکی از  وضعیت ها را انتخاب کنید"
-  ),
-  drinksStatus: Yup.mixed().oneOf(
+  ).required("لطفاً یک گزینه شام را انتخاب کنید."),
+  drinks: Yup.mixed().oneOf(
     ["cocakola", "fanta", "noDrink", null],
     "یکی از  وضعیت ها را انتخاب کنید"
-  ),
-  price: Yup.string().required(" ثیمت الزامی می باشد"),
+  ).required("لطفاً یک گزینه نوشیدنی را انتخاب کنید."),
 });
 
 export const userValidation = Yup.object().shape({
