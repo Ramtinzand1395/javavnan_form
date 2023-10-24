@@ -29,7 +29,6 @@ const RegisterForm = () => {
   };
 
   const handleClick = (direction ) => {
-    console.log(currentStep)
     if (user.length === 0 && currentStep === 1) {
       alert("پرکردن فرم");
       return;
@@ -51,7 +50,7 @@ const RegisterForm = () => {
       <div className="container mt-5">
         <Stepper steps={steps} currentStep={currentStep} />
         {/**Display components */}
-        <div className="my-10 p-10">
+        <div className="my-10 px-10 py-2">
           <StepperContext.Provider
             value={{
               setUserId,
