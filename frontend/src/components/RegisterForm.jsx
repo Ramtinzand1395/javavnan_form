@@ -28,12 +28,16 @@ const RegisterForm = () => {
     }
   };
 
-  const handleClick = (direction) => {
-    if (user.length === 0 ) {
+  const handleClick = (direction ) => {
+    console.log(currentStep)
+    if (user.length === 0 && currentStep === 1) {
       alert("پرکردن فرم");
       return;
     }
-  
+    if (dinner.length === 0 && currentStep === 2) {
+      alert("پرکردن فرم");
+      return;
+    }
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     if (newStep > 0 && newStep <= steps.length) {
