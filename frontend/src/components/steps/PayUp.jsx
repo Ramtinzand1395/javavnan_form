@@ -112,6 +112,7 @@ const PayUp = () => {
           همکیشان عزیز راه اندازی شد
         </p>
       </div>
+      <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd' alt='' style='cursor:pointer' Code='9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd'></a>
     </div>
   );
 };
