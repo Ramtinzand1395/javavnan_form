@@ -95,12 +95,6 @@ const PayUp = () => {
           })}
         </div>
       </div>
-       {dinnerInfo.map((dinner) => (
-        <div className="" key={dinner._id}>
-          <p className="text-white font-bold font-vazir text-center text-2xl">
-            اطلاعات شام : {dinner.dinnerStatus} {dinner.drinksStatus}
-          </p>
-          <p>مجموع قیمت پرداختی : {dinner.price}</p>
           <a
         referrerPolicy="origin"
         target="_blank"
@@ -116,8 +110,6 @@ const PayUp = () => {
           className="w-50 h-52"
         />
       </a>
-        </div>
-      ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
         <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
           متخریم به شما اعلام کنیم بار سرد با عنواع نوشیدنی ها و مزه ها جهت استفاده
