@@ -95,16 +95,28 @@ const PayUp = () => {
           })}
         </div>
       </div>
-      {dinnerInfo.map((dinner) => (
-        <a
-          key={dinner._id}
-          className="bg-green-500 px-6 py-1 text-white font-vazir rounded-lg my-4"
-          href={`https://idpay.ir/icewizard-10/${dinner.price}0`}
-          target="_blank" // Add this attribute to open the link in a new window
-          rel="noopener noreferrer"
-        >
-          پرداخت
-        </a>
+       {dinnerInfo.map((dinner) => (
+        <div className="" key={dinner._id}>
+          <p className="text-white font-bold font-vazir text-center text-2xl">
+            اطلاعات شام : {dinner.dinnerStatus} {dinner.drinksStatus}
+          </p>
+          <p>مجموع قیمت پرداختی : {dinner.price}</p>
+          <a
+        referrerPolicy="origin"
+        target="_blank"
+        rel="noreferrer"
+        href="https://trustseal.enamad.ir/?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd"
+      >
+        <img
+          referrerPolicy="origin"
+          src="https://trustseal.enamad.ir/logo.aspx?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd"
+          alt=""
+          style={{ cursor: "pointer" }}
+          code="9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd"
+          className="w-50 h-52"
+        />
+      </a>
+        </div>
       ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
         <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
@@ -113,9 +125,6 @@ const PayUp = () => {
         </p>
       </div>
       <div>
-      <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd'>
-        <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=416187&Code=9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd' alt='' style='cursor:pointer' Code='9AXV0l3zp4n1sbUC1z1OEPSMbLUEpNjd'/>
-      </a>
       </div>
     </div>
   );
