@@ -110,12 +110,6 @@ const PayUp = () => {
           className="w-50 h-52"
         />
       </a>
-      <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
-        <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
-          متخریم به شما اعلام کنیم بار سرد با عنواع نوشیدنی ها و مزه ها جهت استفاده
-          همکیشان عزیز راه اندازی شد
-        </p>
-      </div>
       <div>
       </div>
     </div>
