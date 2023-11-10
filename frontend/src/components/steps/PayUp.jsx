@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getInfoService, transactionService } from "../../services/userService";
 import { StepperContext } from "../context/StepperContext";
+import axios from "axios";
 
 const PayUp = () => {
   const { UserId } = useContext(StepperContext);
@@ -50,7 +51,7 @@ const PayUp = () => {
   }, [UserId]);
   const handlepayup = async(dinner) =>{
     try {
-      const {data} = await transactionService(dinner);
+      const {data} = await axios.post("https://api.zarinpal.com/pg/v4/payment/request.json" , {merchant_id:"9fbac503-4969-40cf-b95b-5aeed5346aff"});
       console.log(data);
     } catch (err) {
       console.log(err)
