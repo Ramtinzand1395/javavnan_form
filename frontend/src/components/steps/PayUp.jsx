@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getInfoService, transactionService } from "../../services/userService";
 import { StepperContext } from "../context/StepperContext";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const PayUp = () => {
@@ -51,18 +51,15 @@ const PayUp = () => {
     };
     getinfo();
   }, [UserId]);
-  const handlepayup = async(dinner) =>{
+  const handlepayup = async (dinner) => {
     try {
-      const {data, status} = await transactionService(dinner);
-      console.log(data)
-      if(status === 200){
-        navigate(data.redirectURL);
-      }
+      const { data, status } = await transactionService(dinner);
+      navigate(data);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
     }
-  }
+  };
   return (
     <div>
       <div className="mb-2">
@@ -81,7 +78,7 @@ const PayUp = () => {
           {userInfo.map((user) => (
             <div key={user._id}>
               <p className="text-white font-vazir text-base text-start">
-                نام : {user.name} 
+                نام : {user.name}
               </p>
               <p className="text-white font-vazir text-base text-start">
                 نام خانودگی : {user.lastname}
@@ -100,7 +97,7 @@ const PayUp = () => {
               <div className="" key={dinner._id}>
                 <h2 className="text-white font-vazir text-base text-start">
                   <p> شام:{DinnerName}</p>
-                 <p> نوشیدنی :{DrinkName}</p>
+                  <p> نوشیدنی :{DrinkName}</p>
                 </h2>
                 <p className="text-white font-semibold font-vazir text-base mt-4">
                   مجموع قیمت پرداختی : {dinner.price}
@@ -111,14 +108,19 @@ const PayUp = () => {
         </div>
       </div>
       {dinnerInfo.map((dinner) => (
-        <button type="button" key={dinner} className="bg-red-500" onClick={()=>handlepayup()}>
+        <button
+          type="button"
+          key={dinner}
+          className="bg-red-500"
+          onClick={() => handlepayup()}
+        >
           پرداخت
         </button>
       ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
         <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
-          متخریم به شما اعلام کنیم بار سرد با عنواع نوشیدنی ها و مزه ها جهت استفاده
-          همکیشان عزیز راه اندازی شد
+          متخریم به شما اعلام کنیم بار سرد با عنواع نوشیدنی ها و مزه ها جهت
+          استفاده همکیشان عزیز راه اندازی شد
         </p>
       </div>
     </div>
