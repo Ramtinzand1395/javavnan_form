@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { getInfoService, transactionService } from "../../services/userService";
 import { StepperContext } from "../context/StepperContext";
+import {  useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PayUp = () => {
   const { UserId } = useContext(StepperContext);
   const [userInfo, setuserInfo] = useState([]);
   const [dinnerInfo, setdinnerInfo] = useState([]);
+  const navigate = useNavigate();
 
   const alterDinner = (dinner) => {
     let DinnerName = "";
@@ -50,10 +53,13 @@ const PayUp = () => {
   }, [UserId]);
   const handlepayup = async(dinner) =>{
     try {
-      const {data} = await transactionService(dinner);
-      console.log(data)
+      const {data, status} = await transactionService(dinner);
+      if(status === 200){
+        navigate(data.redirectURL);
+      }
     } catch (err) {
-      console.log(err)
+      console.log(err);
+      toast.error(err.response.data.message);
     }
   }
   return (

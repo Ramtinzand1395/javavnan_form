@@ -171,20 +171,24 @@ exports.createTransaction = async (req, res) => {
   
   const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add"
   const zarinpal = new Zarinpal(merchantID)
-
+const {price} = req.body;
   try{
     // currency by default is Toman
     const paymentResponse = await zarinpal.paymentRequest({
-      amount: 10000,
+      amount: price,
       callback_url: "https://kulucheh.ir",
       description: "a simple test",
     })
 
     // if creating payement transaction was not successfull the redirect url
     // will be an empty string
-    const redirectURL = zarinpal.getRedirectURL(paymentResponse);
-    console.log(redirectURL)
-res.send(redirectURL)
+    if (zarinpal.wasSuccessfull(paymentResponse)) {
+      const redirectURL = zarinpal.getRedirectURL(paymentResponse);
+      res.status(200).json(redirectURL);
+    } else {
+      const farsiError =  zarinpal.translateError(paymentResponse);
+      res.status(400).json(farsiError);
+    }
   }catch(e){
     console.log("Error happend while trying to create a new transaction", e)
     return ""
