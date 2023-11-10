@@ -168,25 +168,5 @@ exports.DeleteUser = async (req, res) => {
 };
 
 exports.createTransaction = async (req, res) => {
-  const merchantID = "XXXX-XX-XXXX-XXXXX-XXXX"
-  const zarinpal = new Zarinpal(merchantID)
-const {price} = req.body;
-  try{
-    // currency by default is Toman
-    const paymentResponse = await zarinpal.paymentRequest({
-      amount: price,
-      callback_url: "https://kulucheh.ir/api/payment",
-      description: "a simple test",
-    })
-
-    // if creating payement transaction was not successfull the redirect url
-    // will be an empty string
-    const redirectURL = zarinpal.getRedirectURL(paymentResponse)
-
-    res.send("ok");
-    return redirectURL
-  }catch(e){
-    console.log("Error happend while trying to create a new transaction", e)
-    return ""
-  }
+  res.send("ok")
 };
