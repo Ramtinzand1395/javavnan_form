@@ -54,6 +54,7 @@ const PayUp = () => {
   const handlepayup = async(dinner) =>{
     try {
       const {data, status} = await transactionService(dinner);
+      console.log(data)
       if(status === 200){
         navigate(data.redirectURL);
       }
