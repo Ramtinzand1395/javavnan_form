@@ -170,5 +170,5 @@ exports.DeleteUser = async (req, res) => {
 exports.createTransaction = async (req, res) => {
 
 console.log(req.body)
- res.send("pk")
+ res.send(req.body)
 };
