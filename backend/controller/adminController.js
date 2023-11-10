@@ -183,6 +183,7 @@ const {price} = req.body;
     // will be an empty string
     const redirectURL = zarinpal.getRedirectURL(paymentResponse)
 
+    res.send("ok");
     return redirectURL
   }catch(e){
     console.log("Error happend while trying to create a new transaction", e)
