@@ -51,7 +51,12 @@ const PayUp = () => {
   }, [UserId]);
   const handlepayup = async(dinner) =>{
     try {
-      const {data} = await axios.post("https://api.zarinpal.com/pg/v4/payment/request.json" , {merchant_id:"9fbac503-4969-40cf-b95b-5aeed5346aff"});
+      const {data} = await axios.post("https://api.zarinpal.com/pg/v4/payment/request.json" , {
+        "merchant_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "amount": 1000,
+        "callback_url": "http://alireza.work/verify",
+        "description": "Transaction description.",
+        "metadata": {"mobile": "09106869409","email": "info.test@gmail.com"}}  );
       console.log(data);
     } catch (err) {
       console.log(err)
