@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER_URL = "https://javavnan-form-ramtinzand1395.vercel.app/api";
+const SERVER_URL = "https://javavnan-form.vercel.app/api";
 
 // @desc  registerUser
 // @route post http://localhost:5000/api/register-user
@@ -64,4 +64,11 @@ export const getAllUsers = () => {
 export const deleteUser = (userId) => {
   const url = `${SERVER_URL}/delete-user/${userId}`;
   return axios.delete(url);
+};
+
+// @desc  QRcode
+// @route get http://localhost:5000/api/create-QRcode
+export const transactionService = (dinner) => {
+  const url = `${SERVER_URL}/pay-up`;
+  return axios.post(url , dinner);
 };

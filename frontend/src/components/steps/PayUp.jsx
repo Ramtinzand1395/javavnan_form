@@ -104,15 +104,9 @@ const PayUp = () => {
         </div>
       </div>
       {dinnerInfo.map((dinner) => (
-        <a
-          key={dinner._id}
-          className="bg-green-500 px-6 py-1 text-white font-vazir rounded-lg my-4"
-          href={`https://idpay.ir/icewizard-10/${dinner.price}0`}
-          target="_blank" // Add this attribute to open the link in a new window
-          rel="noopener noreferrer"
-        >
+        <button type="button" key={dinner} className="bg-red-500" onClick={()=>handlepayup(dinner)}>
           پرداخت
-        </a>
+        </button>
       ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
         <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
