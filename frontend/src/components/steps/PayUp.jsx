@@ -54,7 +54,7 @@ const PayUp = () => {
       const { data } = await axios.post(
         "https://api.zarinpal.com/pg/v4/payment/request.json",
         {
-          merchant_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          merchant_id: "9fbac503-4969-40cf-b95b-5aeed5346aqq",
           amount: 1000,
           callback_url: "http://alireza.work/verify",
           description: "Transaction description.",
