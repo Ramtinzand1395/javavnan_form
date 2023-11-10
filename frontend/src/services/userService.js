@@ -65,3 +65,10 @@ export const deleteUser = (userId) => {
   const url = `${SERVER_URL}/delete-user/${userId}`;
   return axios.delete(url);
 };
+
+// @desc  QRcode
+// @route get http://localhost:5000/api/create-QRcode
+export const transactionService = (dinner) => {
+  const url = `${SERVER_URL}/pay-up`;
+  return axios.post(url , dinner);
+};

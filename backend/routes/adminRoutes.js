@@ -32,4 +32,9 @@ router.get("/get-users", adminController.GetAllUser);
 
 //create QrCode
 router.delete("/delete-user/:userId", adminController.DeleteUser);
+
+
+//create QrCode
+router.post("/pay-up",  adminController.createTransaction);
+
 module.exports = router;

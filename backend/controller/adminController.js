@@ -3,6 +3,8 @@ const Dinner = require("../models/Dinner");
 
 const QRcode = require("qrcode");
 
+const Zarinpal = require("zarinpal-nodejs")
+
 exports.createUser = async (req, res) => {
   const { name, lastname } = req.body.user;
   const { UserId } = req.body;
@@ -163,4 +165,10 @@ exports.DeleteUser = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+exports.createTransaction = async (req, res) => {
+
+console.log(req.body)
+ res.send("pk")
 };
