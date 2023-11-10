@@ -3,7 +3,7 @@ const Dinner = require("../models/Dinner");
 
 const QRcode = require("qrcode");
 
-const Zarinpal = require("zarinpal-nodejs")
+const Zarinpal = require("zarinpal-nodejs");
 
 exports.createUser = async (req, res) => {
   const { name, lastname } = req.body.user;
@@ -89,7 +89,7 @@ exports.GetInfo = async (req, res) => {
 
 //QR CODE
 
-exports.CreateQrCode = async(req, res) => {
+exports.CreateQrCode = async (req, res) => {
   const { userId } = req.body;
   const url = `https://kulucheh.ir/login/${userId}`;
   const user = await User.findById(userId);
@@ -98,7 +98,7 @@ exports.CreateQrCode = async(req, res) => {
     console.log(err);
     user.QRCode = url;
     await user.save();
-    res.status(200).json({ message: "qrcode ساخته شد", url , user });
+    res.status(200).json({ message: "qrcode ساخته شد", url, user });
   });
 };
 
@@ -114,9 +114,7 @@ exports.arriwed = async (req, res) => {
         .status(201)
         .json({ message: "تغغیرات با موفقیت انجام شد.", selectedUser });
     } else {
-      res
-        .status(404)
-        .json({ message: "کاربر پیدا نشد." });
+      res.status(404).json({ message: "کاربر پیدا نشد." });
     }
   } catch (err) {
     console.log(err);
@@ -135,20 +133,17 @@ exports.deliverDinner = async (req, res) => {
         .status(201)
         .json({ message: "تغغیرات با موفقیت انجام شد.", selectedUser });
     } else {
-      res
-        .status(404)
-        .json({ message: "کاربر پیدا نشد." });
+      res.status(404).json({ message: "کاربر پیدا نشد." });
     }
   } catch (err) {
     console.log(err);
   }
 };
 
-
 exports.GetAllUser = async (req, res) => {
   try {
     const user = await User.find();
-    return res.status(200).json({user});
+    return res.status(200).json({ user });
   } catch (err) {
     console.log(err);
   }
@@ -159,38 +154,32 @@ exports.DeleteUser = async (req, res) => {
   try {
     const user = await User.findByIdAndRemove(userId);
     if (!user) {
-      return res.status(404).json({ message: 'کاربر پیدا نشد.' });
+      return res.status(404).json({ message: "کاربر پیدا نشد." });
     }
-    return res.status(200).json({user , message:"کاربر حذف شد."});
+    return res.status(200).json({ user, message: "کاربر حذف شد." });
   } catch (err) {
     console.log(err);
   }
 };
 
 exports.createTransaction = async (req, res) => {
-  
-  const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add"
-  const zarinpal = new Zarinpal(merchantID)
-const {price} = req.body;
-  try{
+  const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
+  const zarinpal = new Zarinpal(merchantID);
+  const { price } = req.body;
+  try {
     // currency by default is Toman
     const paymentResponse = await zarinpal.paymentRequest({
       amount: price,
       callback_url: "https://kulucheh.ir",
       description: "a simple test",
-    })
+    });
 
     // if creating payement transaction was not successfull the redirect url
     // will be an empty string
-    if (zarinpal.wasSuccessfull(paymentResponse)) {
-      const redirectURL = zarinpal.getRedirectURL(paymentResponse);
-      res.send(redirectURL).status(200).json({redirectURL});
-    } else {
-      const farsiError =  zarinpal.translateError({paymentResponse});
-      res.status(400).json(farsiError);
-    }
-  }catch(e){
-    console.log("Error happend while trying to create a new transaction", e)
-    return ""
+    const redirectURL = zarinpal.getRedirectURL(paymentResponse);
+    res.send(redirectURL);
+  } catch (e) {
+    console.log("Error happend while trying to create a new transaction", e);
+    return "";
   }
 };
