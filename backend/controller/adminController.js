@@ -184,9 +184,9 @@ const {price} = req.body;
     // will be an empty string
     if (zarinpal.wasSuccessfull(paymentResponse)) {
       const redirectURL = zarinpal.getRedirectURL(paymentResponse);
-      res.send(redirectURL).status(200).json(redirectURL);
+      res.send(redirectURL).status(200).json({redirectURL});
     } else {
-      const farsiError =  zarinpal.translateError(paymentResponse);
+      const farsiError =  zarinpal.translateError({paymentResponse});
       res.status(400).json(farsiError);
     }
   }catch(e){
