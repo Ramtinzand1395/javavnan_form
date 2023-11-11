@@ -190,6 +190,6 @@ exports.createTransaction = async (req, res) => {
 };
 
 exports.zarinresponse = async (req, res) => {
-  console.log(req.body)
-res.send(req.body)
+  const {Authority , Status } = req.body.query;
+res.send(Authority)
 };
