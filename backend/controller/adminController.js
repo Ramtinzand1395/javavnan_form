@@ -198,5 +198,5 @@ exports.zarinresponse = async (req, res) => {
   const authorityid = zarinpal.getAuthorityAfterSuccessfullPayment(query);
   const ok = zarinpal.wasVerifySuccessfull(verificationResponse);
 
-  res.send(did, authorityid, ok);
+  res.send(query);
 };
