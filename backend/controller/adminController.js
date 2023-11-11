@@ -177,8 +177,13 @@ exports.createTransaction = async (req, res) => {
 
     // if creating payement transaction was not successfull the redirect url
     // will be an empty string
-    const redirectURL = zarinpal.getRedirectURL(paymentResponse);
-    res.send(redirectURL);
+    if (zarinpal.wasSuccessfull(paymentResponse)) {
+      const redirectURL = zarinpal.getRedirectURL(paymentResponse);
+      res.status(200).send(redirectURL);
+    } else {
+      const farsiError =  zarinpal.translateError(paymentResponse);
+      res.status(400).send(farsiError)
+    }
   } catch (e) {
     console.log("Error happend while trying to create a new transaction", e);
     return "";

@@ -8,7 +8,7 @@ const PayUp = () => {
   const { UserId } = useContext(StepperContext);
   const [userInfo, setuserInfo] = useState([]);
   const [dinnerInfo, setdinnerInfo] = useState([]);
-  const navigate = useNavigate();
+  const [ZarinLink, setZarinLink] = useState("");
 
   const alterDinner = (dinner) => {
     let DinnerName = "";
@@ -53,16 +53,22 @@ const PayUp = () => {
   }, [UserId]);
 
   const handlepayup = async (dinner) => {
-    console.log(dinner);
     try {
       const { data, status } = await transactionService(dinner);
-      console.log(data);
+      if(status === 200){
+        setZarinLink(data);
+      }
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
     }
   };
-
+  useEffect(() => {
+    if (ZarinLink) {
+      // Redirect to ZarinLink when it exists
+      window.location.href = ZarinLink;
+    }
+  }, [ZarinLink]);
   return (
     <div>
       <div className="mb-2">
