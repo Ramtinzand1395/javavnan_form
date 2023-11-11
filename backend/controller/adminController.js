@@ -191,6 +191,6 @@ exports.createTransaction = async (req, res) => {
 
 exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
-  const data = zarinpal.didUserPaySuccessfully(query)
- res.send(data)
+  const authority = zarinpal.getAuthorityAfterSuccessfullPayment(query)
+ res.send(authority)
 };
