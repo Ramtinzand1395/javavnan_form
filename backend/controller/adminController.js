@@ -190,6 +190,13 @@ exports.createTransaction = async (req, res) => {
 };
 
 exports.zarinresponse = async (req, res) => {
-  const {query  } = req.body.query;
-res.send(query )
+  const { query } = req.body;
+  const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
+  const zarinpal = new Zarinpal(merchantID);
+
+  const did = zarinpal.didUserPaySuccessfully(query);
+  const authorityid = zarinpal.getAuthorityAfterSuccessfullPayment(query);
+  const ok = zarinpal.wasVerifySuccessfull(verificationResponse);
+
+  res.send(did, authorityid, ok);
 };
