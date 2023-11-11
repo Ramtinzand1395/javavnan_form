@@ -196,6 +196,9 @@ exports.zarinresponse = async (req, res) => {
   try {
     if (zarinpal.didUserPaySuccessfully(req.body)) {
       res.send("ok")
+    }else{
+      const data = zarinpal.didUserPaySuccessfully(req.body);
+      res.send(data)
     }
   } catch (e) {
     console.log("Error happend while trying to create a new transaction", e);
