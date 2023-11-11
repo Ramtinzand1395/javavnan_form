@@ -78,5 +78,5 @@ export const transactionService = (dinner) => {
 export const paymentresponseService = (query) => {
   console.log(query)
   const url = `${SERVER_URL}/response`;
-  return axios.post(url,query);
+  return axios.get(url,{params:query});
 };
