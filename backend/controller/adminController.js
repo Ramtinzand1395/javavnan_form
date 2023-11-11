@@ -192,8 +192,15 @@ exports.createTransaction = async (req, res) => {
 exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
   if (zarinpal.didUserPaySuccessfully(query)) {
-    res.send("ok");
+    const authority = zarinpal.getAuthorityAfterSuccessfullPayment(query);
+    const verificationResponse = await zarinpal.verifyPayment({
+      authority,
+    });
+    const ok = zarinpal.wasVerifySuccessfull(verificationResponse);
+    if (ok) {
+      res.status(200).send("ok")
+    }
   } else {
-    res.send("verificationResponse");
+    res.status(400).send("پرداخت شما موفقیت آمیز نبود. دوباره تلاش کنید");
   }
 };
