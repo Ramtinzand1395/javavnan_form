@@ -192,5 +192,5 @@ exports.createTransaction = async (req, res) => {
 exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
 
-  res.send(query);
+  res.send(req.body);
 };
