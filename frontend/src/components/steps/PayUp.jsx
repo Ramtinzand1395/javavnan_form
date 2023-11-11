@@ -51,15 +51,17 @@ const PayUp = () => {
     };
     getinfo();
   }, [UserId]);
+
   const handlepayup = async (dinner) => {
     try {
       const { data, status } = await transactionService(dinner);
-      navigate(data);
+      window.location.href = data;
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
     }
   };
+
   return (
     <div>
       <div className="mb-2">
