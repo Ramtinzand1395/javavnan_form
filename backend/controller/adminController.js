@@ -170,7 +170,7 @@ exports.createTransaction = async (req, res) => {
     // currency by default is Toman
     const paymentResponse = await zarinpal.paymentRequest({
       amount: price,
-      callback_url: "https://kulucheh.ir/finall",
+      callback_url: "https://kulucheh.ir",
       description: userId,
     });
 
