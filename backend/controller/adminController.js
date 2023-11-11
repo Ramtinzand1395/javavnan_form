@@ -163,6 +163,7 @@ exports.DeleteUser = async (req, res) => {
 };
 
 exports.createTransaction = async (req, res) => {
+  console.log("first")
   const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
   const zarinpal = new Zarinpal(merchantID);
   const { price } = req.body;
@@ -170,7 +171,7 @@ exports.createTransaction = async (req, res) => {
   try {
     // currency by default is Toman
     const paymentResponse = await zarinpal.paymentRequest({
-      amount: 10000,
+      amount: price,
       callback_url: "https://kulucheh.ir",
       description: "a simple test",
     });

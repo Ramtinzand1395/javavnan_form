@@ -53,9 +53,10 @@ const PayUp = () => {
   }, [UserId]);
 
   const handlepayup = async (dinner) => {
+    console.log(dinner);
     try {
       const { data, status } = await transactionService(dinner);
-      window.location.href = data;
+      console.log(data);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -112,9 +113,9 @@ const PayUp = () => {
       {dinnerInfo.map((dinner) => (
         <button
           type="button"
-          key={dinner}
+          key={dinner.userId}
           className="bg-red-500"
-          onClick={() => handlepayup()}
+          onClick={() => handlepayup(dinner)}
         >
           پرداخت
         </button>
