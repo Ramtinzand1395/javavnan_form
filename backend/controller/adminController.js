@@ -4,6 +4,8 @@ const Dinner = require("../models/Dinner");
 const QRcode = require("qrcode");
 
 const Zarinpal = require("zarinpal-nodejs");
+const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
+const zarinpal = new Zarinpal(merchantID);
 
 exports.createUser = async (req, res) => {
   const { name, lastname } = req.body.user;
@@ -163,8 +165,6 @@ exports.DeleteUser = async (req, res) => {
 };
 
 exports.createTransaction = async (req, res) => {
-  const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
-  const zarinpal = new Zarinpal(merchantID);
   const { price, userId } = req.body;
   try {
     // currency by default is Toman
@@ -191,6 +191,6 @@ exports.createTransaction = async (req, res) => {
 
 exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
-
-  res.send(query);
+  const authority = zarinpal.getAuthorityAfterSuccessfullPayment(query)
+  res.send(authority);
 };
