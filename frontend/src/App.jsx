@@ -12,7 +12,7 @@ const App = () => {
       <Route path="/login/:userId" element={<ShowData />} />
       <Route path="/admin-login/:userId" element={<AdminLogin />} />
       <Route path="/admin/get-users" element={<Users />} />
-      <Route path="/finall/:Authority/:Status" element={<Finall />} />
+      <Route path="/finall" element={<Finall />} />
     </Routes>
   );
 };
