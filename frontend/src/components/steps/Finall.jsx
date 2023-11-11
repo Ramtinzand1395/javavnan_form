@@ -28,7 +28,10 @@ const Finall = ({ Authority, Status }) => {
   return (
     <div>
       <p className="text-white">
+        <p className="text-white bg-red-500 p-3">
+
         {PayStatus}
+        </p>
         <button className="px-1 py-4 bg-green-500" onClick={() => handleback()}>
           بازگشت به صفحه اصلی
         </button>
