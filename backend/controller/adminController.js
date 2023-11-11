@@ -188,3 +188,17 @@ exports.createTransaction = async (req, res) => {
     return "";
   }
 };
+
+exports.zarinresponse = async (req, res) => {
+  
+  try {
+    const verificationResponse = await zarinpal.verifyPayment({
+      amount: 1000,
+      authority
+    });
+    res.send(req.body)
+  } catch (e) {
+    console.log("Error happend while trying to create a new transaction", e);
+    return "";
+  }
+};

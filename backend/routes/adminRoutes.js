@@ -37,4 +37,8 @@ router.delete("/delete-user/:userId", adminController.DeleteUser);
 //create QrCode
 router.post("/pay-up",  adminController.createTransaction);
 
+
+//create QrCode
+router.post("/response",  adminController.zarinresponse);
+
 module.exports = router;
