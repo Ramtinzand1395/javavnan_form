@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { getInfoService, transactionService } from "../../services/userService";
 import { StepperContext } from "../context/StepperContext";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const PayUp = () => {

@@ -163,7 +163,6 @@ exports.DeleteUser = async (req, res) => {
 };
 
 exports.createTransaction = async (req, res) => {
-  console.log("first")
   const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
   const zarinpal = new Zarinpal(merchantID);
   const { price  , userId} = req.body;

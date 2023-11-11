@@ -4,9 +4,11 @@ import { registerUserService } from "../../services/userService";
 import { toast } from "react-toastify";
 import { StepperContext } from "../context/StepperContext";
 import { userValidation } from "../validation/Validation";
+import { useParams } from "react-router-dom";
 const Acount = () => {
   const { setUserId, user, setuser, UserId } = useContext(StepperContext);
   const [loading, setloading] = useState(false);
+  const {Authority} = useParams()
   const registerUser = async (values) => {
     setloading(true);
     try {
@@ -22,7 +24,7 @@ const Acount = () => {
       setloading(false);
     }
   };
-
+console.log(Authority,"aaa")
   return (
     <div className="flex flex-col font-tanha">
       <div className="bg-white p-2 rounded-lg mb-2">

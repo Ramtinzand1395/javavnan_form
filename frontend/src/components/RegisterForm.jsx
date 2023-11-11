@@ -1,20 +1,18 @@
 import { useState } from "react";
 
 import { StepperContext } from "../components/context/StepperContext";
+import Stepper from "./Stepper";
+import StepperControll from "./StepperControll";
 import Acount from "./steps/Acount";
 import Dinner from "./steps/Dinner";
 import PayUp from "./steps/PayUp";
-import Stepper from "./Stepper";
-import StepperControll from "./StepperControll";
-import { Link } from "react-router-dom";
 const RegisterForm = () => {
   const [currentStep, setcurrentStep] = useState(1);
   const [UserId, setUserId] = useState("");
   const [dinner, setdinner] = useState("");
   const [user, setuser] = useState([]);
   const [finallData, setfinallData] = useState([]);
-
-  const steps = ["اطلاعات فردی", "شام", "پرداخت" , ""];
+  const steps = ["اطلاعات فردی", "شام", "پرداخت", ""];
 
   const displayStep = (step) => {
     switch (step) {
@@ -28,7 +26,7 @@ const RegisterForm = () => {
     }
   };
 
-  const handleClick = (direction ) => {
+  const handleClick = (direction) => {
     if (user.length === 0 && currentStep === 1) {
       alert("پرکردن فرم");
       return;
