@@ -165,7 +165,7 @@ exports.DeleteUser = async (req, res) => {
 exports.createTransaction = async (req, res) => {
   const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
   const zarinpal = new Zarinpal(merchantID);
-  const { price  , userId} = req.body;
+  const { price, userId } = req.body;
   try {
     // currency by default is Toman
     const paymentResponse = await zarinpal.paymentRequest({
@@ -180,8 +180,8 @@ exports.createTransaction = async (req, res) => {
       const redirectURL = zarinpal.getRedirectURL(paymentResponse);
       res.status(200).send(redirectURL);
     } else {
-      const farsiError =  zarinpal.translateError(paymentResponse);
-      res.status(400).send(farsiError)
+      const farsiError = zarinpal.translateError(paymentResponse);
+      res.status(400).send(farsiError);
     }
   } catch (e) {
     console.log("Error happend while trying to create a new transaction", e);
@@ -190,13 +190,13 @@ exports.createTransaction = async (req, res) => {
 };
 
 exports.zarinresponse = async (req, res) => {
-  
+  const { Authority, Status } = req.body;
+  const zarinpal = new Zarinpal();
+
   try {
-    const verificationResponse = await zarinpal.verifyPayment({
-      amount: 1000,
-      authority
-    });
-    res.send(req.body)
+    if (zarinpal.didUserPaySuccessfully(req.body)) {
+      res.send("ok")
+    }
   } catch (e) {
     console.log("Error happend while trying to create a new transaction", e);
     return "";
