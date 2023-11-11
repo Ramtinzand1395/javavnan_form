@@ -70,12 +70,12 @@ export const deleteUser = (userId) => {
 // @route get http://localhost:5000/api/create-QRcode
 export const transactionService = (dinner) => {
   const url = `${SERVER_URL}/pay-up`;
-  return axios.post(url , dinner);
+  return axios.post(url, dinner);
 };
 
 // @desc  QRcode
 // @route get http://localhost:5000/api/create-QRcode
 export const paymentresponseService = (query) => {
   const url = `${SERVER_URL}/response`;
-  return axios.post(url , query);
+  return axios.post(url,query);
 };

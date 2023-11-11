@@ -3,13 +3,13 @@ import { paymentresponseService } from "../../services/userService";
 
 const Finall = ({ Authority, Status }) => {
   useEffect(() => {
-    const res = async () => {
-      const { data } = await paymentresponseService({ Authority, Status });
+    const getdata = async () => {
+      const { data } = await paymentresponseService({ query: { Authority, Status } });
       console.log(data);
     };
-    res();
+    getdata();
   }, [Authority, Status ]);
-  console.log(Authority)
+
   return (
     <div>
       <p className="text-white">
