@@ -64,7 +64,7 @@ const Finall = ({ Authority, Status }) => {
               />
             ) : (
               <p className="text-red-400 font-tanha">
-                ...در حال ساخت بلیط منتظر بمانید
+                . . . در حال ساخت بلیط منتظر بمانید
               </p>
             )}
           </div>
