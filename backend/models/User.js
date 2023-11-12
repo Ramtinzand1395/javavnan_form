@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
     maxlength: [225, " نام خانوادگی نباید بیشتر از 225 کاراکتر باشد"],
     minlength: [3, " نام خانوادگی نباید کمتر از 3 کاراکتر باشد"],
   },
+  mobile: {
+    type: Number,
+    required: [true, "موبایل الزامی می باشد"],
+  },
   isAdmin: {
     type: Boolean,
     require: true,

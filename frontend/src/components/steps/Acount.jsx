@@ -58,6 +58,7 @@ const Acount = () => {
           initialValues={{
             name: user.name,
             lastname: user.lastname,
+            mobile: user.mobile,
           }}
           validationSchema={userValidation}
           onSubmit={(values) => {
@@ -93,6 +94,21 @@ const Acount = () => {
 
             <ErrorMessage
               name="lastname"
+              render={(msg) => <div className="text-red-500 m-4">{msg}</div>}
+            />
+             <label
+              className={`block md:text-base font-bold text-xs mb-2 text-white font-tanha text-start`}
+            >
+               شماره موبایل
+            </label>
+            <Field
+              name="mobile"
+              type="number"
+              className="p-2 mb-5 px-2 appearance-none outline-none w-full text-black bg-white-400 focus:bg-gray-600 border focus:text-white border-black text-base rounded-lg"
+            />
+
+            <ErrorMessage
+              name="mobile"
               render={(msg) => <div className="text-red-500 m-4">{msg}</div>}
             />
             <div className="mx-2 flex items-start flex-col">

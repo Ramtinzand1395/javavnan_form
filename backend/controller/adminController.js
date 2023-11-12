@@ -8,7 +8,8 @@ const merchantID = "9fbac503-4969-40cf-b95b-5aeed5346add";
 const zarinpal = new Zarinpal(merchantID);
 
 exports.createUser = async (req, res) => {
-  const { name, lastname } = req.body.user;
+  console.log(req.body.user)
+  const { name, lastname , mobile } = req.body.user;
   const { UserId } = req.body;
   try {
     if (UserId.length !== 0) {
@@ -17,6 +18,7 @@ exports.createUser = async (req, res) => {
       if (duplicateUser) {
         duplicateUser.name = name;
         duplicateUser.lastname = lastname;
+        duplicateUser.mobile = mobile;
         const user = await duplicateUser.save();
         res.status(201).json({
           message: "تغغیرات با موفقیت انجام شد.",
@@ -25,7 +27,7 @@ exports.createUser = async (req, res) => {
         });
       }
     } else {
-      const user = await User.create({ name, lastname });
+      const user = await User.create({ name, lastname , mobile });
       return res
         .status(201)
         .json({ message: "کاربر با موفقیت ذخیره شد.", userId: user._id, user });
