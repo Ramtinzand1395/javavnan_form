@@ -118,6 +118,7 @@ const PayUp = () => {
                 >
                   پرداخت
                 </button>
+                <p>sadsad</p>
               </div>
             );
           })}
