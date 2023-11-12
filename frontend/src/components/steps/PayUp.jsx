@@ -113,12 +113,11 @@ const PayUp = () => {
                 </p>
                 <button
                   type="button"
-                  className="bg-red-500 py-1 px-5 rounded-lg text-white"
+                  className="bg-red-500 py-1 w-full px-10 rounded-lg text-white mt-5"
                   onClick={() => handlepayup(dinner)}
                 >
                   پرداخت
                 </button>
-                <p>sadsad</p>
               </div>
             );
           })}
