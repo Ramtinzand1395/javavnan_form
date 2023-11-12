@@ -39,16 +39,6 @@ const Acount = () => {
           نام برای یک نفر می باشد
         </p>
         <p className="mt-2">
-          <span className="text-red-500 font-semibold">تذکر4 :</span> پس از
-          پرداخت بلیط ورودی به شماره شما ارسال میشود حتما آنرا به همراه داشته
-          باشید
-        </p>
-        <p className="mt-2">
-          <span className="text-red-500 font-semibold">تذکر5 :</span> اگر شماره
-          ای در فضای مجازی ندارید بلیط ورودی شما درب ورودی به شما تحویل داده
-          میشود
-        </p>
-        <p className="mt-2">
           <span className="text-red-500 font-semibold">تذکر6 :</span> 
           در صورت بروز هر گونه مشکل در روند ثبت نام با شماره 09138433385 در ارتباط باشید
         </p>
