@@ -51,8 +51,8 @@ const Finall = ({ Authority, Status }) => {
         {Isvalid ? (
           <div className="bg-white p-5 text-center font-vazir text-2xl">
             <p className="text-red-500 ">
-              از کد زیر عکس بگیرید بلیط ورود و شام شما این میباشد. هنگام ورود
-              حتما آنرا به همراه داشته باشید.
+              از کد زیر عکس بگیرید و هنگام ورود حتما آنرا به همراه
+              داشته باشید.
             </p>
             {QrcodeImg.length > 0 ? (
               <img
