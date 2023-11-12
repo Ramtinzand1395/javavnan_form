@@ -191,6 +191,7 @@ exports.createTransaction = async (req, res) => {
 
 exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
+  console.log("first")
 try {
   if(zarinpal.didUserPaySuccessfully(query)){
     res.status(200).send("عملیات ثبت نام موفقیت آمیز بود")
