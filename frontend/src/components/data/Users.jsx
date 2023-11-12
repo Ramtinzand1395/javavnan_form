@@ -40,12 +40,13 @@ const Users = () => {
   return (
     <div>
       {Users.map((user) => (
-        <div className="bg-white mt-2 " key={user._id}>
+        <div className="bg-white mt-2 font-vazir " key={user._id}>
           <p>_id: {user._id}</p>
-          <p>name: {user.name}</p>
-          <p>lastname: {user.lastname}</p>
-          <p>status: {user.status}</p>
-          <p>dinnerstatus: {user.dinnerstatus}</p>
+          <p>نام: {user.name}</p>
+          <p>شماره موبایل: {user.mobile}</p>
+          <p>نام خانوادگی: {user.lastname}</p>
+          <p>استاتوس ورود: {user.status}</p>
+          <p>استاتوس تحویل غذا: {user.dinnerstatus}</p>
           <button
             onClick={() => handleDelete(user._id)}
             className="bg-red-500 rounded-lg px-4 py-1"
