@@ -56,7 +56,7 @@ const Finall = ({ Authority, Status }) => {
           </p>
         )}
         <button className="px-1 py-4 bg-green-500" onClick={() => handleback()}>
-          بازگشت به صفحه اصلی
+         1 بازگشت به صفحه اصلی
         </button>
       </p>
     </div>
