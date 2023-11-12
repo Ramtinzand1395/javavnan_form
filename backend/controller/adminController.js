@@ -199,5 +199,5 @@ exports.zarinresponse = async (req, res) => {
     amount: 1000,
     authority
   })
- res.send(verificationResponse)
+ res.send(req.body)
 };
