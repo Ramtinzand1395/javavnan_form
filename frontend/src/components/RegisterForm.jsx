@@ -31,7 +31,7 @@ const RegisterForm = () => {
       alert("پرکردن فرم");
       return;
     }
-    if (dinner.length === 0 && currentStep === 2) {
+    if (dinner.length === 0 && currentStep === 2 && direction === "next") {
       alert("پرکردن فرم");
       return;
     }

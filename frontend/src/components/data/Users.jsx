@@ -43,8 +43,8 @@ const Users = () => {
         <div className="bg-white mt-2 font-vazir " key={user._id}>
           <p>_id: {user._id}</p>
           <p>نام: {user.name}</p>
-          <p>شماره موبایل: {user.mobile}</p>
           <p>نام خانوادگی: {user.lastname}</p>
+          <p>شماره موبایل: {user.mobile}</p>
           <p>استاتوس ورود: {user.status}</p>
           <p>استاتوس تحویل غذا: {user.dinnerstatus}</p>
           <button
