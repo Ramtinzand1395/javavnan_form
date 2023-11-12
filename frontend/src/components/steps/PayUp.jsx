@@ -8,6 +8,7 @@ const PayUp = () => {
   const [userInfo, setuserInfo] = useState([]);
   const [dinnerInfo, setdinnerInfo] = useState([]);
   const [ZarinLink, setZarinLink] = useState("");
+  localStorage.setItem("userssss","dinner");
 
   const alterDinner = (dinner) => {
     let DinnerName = "";
@@ -52,11 +53,12 @@ const PayUp = () => {
   }, [UserId]);
 
   const handlepayup = async (dinner) => {
-    localStorage.setItem("user",dinner);
     try {
       const { data, status } = await transactionService(dinner);
       if(status === 200){
+        localStorage.setItem("user",dinner);
         setZarinLink(data);
+
       }
     } catch (err) {
       console.log(err);
