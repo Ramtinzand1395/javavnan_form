@@ -77,5 +77,8 @@ export const transactionService = (dinner) => {
 // @route get http://localhost:5000/api/create-QRcode
 export const paymentresponseService = (query) => {
   const url = `${SERVER_URL}/response`;
-  return axios.get(url,{params:query});
+  return axios.post(url, query, {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  });
 };
