@@ -197,10 +197,10 @@ try {
   if(zarinpal.didUserPaySuccessfully(query)){
     res.status(200).send("عملیات ثبت نام موفقیت آمیز بود")
   }else{
-    res.status(500).send("عملیات ثبت نام موفقیت آمیز نبود دوباره تلاش کنید.")
+    res.status(501).send("عملیات ثبت نام موفقیت آمیز نبود دوباره تلاش کنید.")
   }
 } catch (err) {
   console.log(err);
-  res.status(400).send(err);
+  res.status(501).send(err);
 }
 };

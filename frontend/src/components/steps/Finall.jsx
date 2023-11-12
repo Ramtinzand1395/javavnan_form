@@ -4,6 +4,7 @@ import {
   paymentresponseService,
 } from "../../services/userService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Finall = ({ Authority, Status }) => {
   const [PayStatus, setPayStatus] = useState("");
@@ -29,6 +30,7 @@ const Finall = ({ Authority, Status }) => {
       } catch (err) {
         console.log(err);
         setIsvalid(false);
+        toast.error(err.response.data)
         setPayStatus(err.response.data);
       }
     };
