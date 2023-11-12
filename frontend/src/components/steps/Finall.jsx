@@ -11,6 +11,7 @@ const Finall = ({ Authority, Status }) => {
         const { data, status } = await paymentresponseService({
           query: { Authority, Status },
         });
+        console.log(data,"data")
         if (status === 200) {
           setPayStatus(data);
         }
