@@ -54,10 +54,9 @@ const PayUp = () => {
   const handlepayup = async (dinner) => {
     try {
       const { data, status } = await transactionService(dinner);
-      if(status === 200){
-        localStorage.setItem("user",UserId);
+      if (status === 200) {
+        localStorage.setItem("user", UserId);
         setZarinLink(data);
-
       }
     } catch (err) {
       console.log(err);
@@ -112,21 +111,18 @@ const PayUp = () => {
                 <p className="text-white font-semibold font-vazir text-base mt-4">
                   مجموع قیمت پرداختی : {dinner.price}
                 </p>
+                <button
+                  type="button"
+                  className="bg-red-500 py-1 px-5 rounded-lg text-white"
+                  onClick={() => handlepayup(dinner)}
+                >
+                  پرداخت
+                </button>
               </div>
             );
           })}
         </div>
       </div>
-      {dinnerInfo.map((dinner) => (
-        <button
-          type="button"
-          key={dinner.userId}
-          className="bg-red-500"
-          onClick={() => handlepayup(dinner)}
-        >
-          پرداخت
-        </button>
-      ))}
       <div className="flex items-center justify-around mt-4 p-2 bg-white opacity-80 rounded-lg costom relative">
         <p className="text-red-500 font-vazir font-semibold text-center text-base z-10 m-5">
           متخریم به شما اعلام کنیم بار سرد با عنواع نوشیدنی ها و مزه ها جهت
