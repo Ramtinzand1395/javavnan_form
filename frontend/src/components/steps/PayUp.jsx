@@ -8,7 +8,7 @@ const PayUp = () => {
   const [userInfo, setuserInfo] = useState([]);
   const [dinnerInfo, setdinnerInfo] = useState([]);
   const [ZarinLink, setZarinLink] = useState("");
-  localStorage.setItem("userssss","dinner");
+  localStorage.setItem("userssss","dinnersadasd");
 
   const alterDinner = (dinner) => {
     let DinnerName = "";
