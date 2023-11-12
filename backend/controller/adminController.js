@@ -181,7 +181,7 @@ exports.createTransaction = async (req, res) => {
       res.status(200).send(redirectURL);
     } else {
       const farsiError = zarinpal.translateError(paymentResponse);
-      res.status(400).send(farsiError);
+      res.status(500).send(farsiError);
     }
   } catch (e) {
     console.log("Error happend while trying to create a new transaction", e);
@@ -195,7 +195,7 @@ try {
   if(zarinpal.didUserPaySuccessfully(query)){
     res.status(200).send("عملیات ثبت نام موفقیت آمیز بود")
   }else{
-    res.status(401).send("عملیات ثبت نام موفقیت آمیز نبود دوباره تلاش کنید.")
+    res.status(500).send("عملیات ثبت نام موفقیت آمیز نبود دوباره تلاش کنید.")
   }
 } catch (err) {
   console.log(err);

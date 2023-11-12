@@ -11,7 +11,6 @@ const Finall = ({ Authority, Status }) => {
         const { data, status } = await paymentresponseService({
           query: { Authority, Status },
         });
-        console.log(data,"data")
         if (status === 200) {
           setPayStatus(data);
         }
@@ -29,10 +28,7 @@ const Finall = ({ Authority, Status }) => {
   return (
     <div>
       <p className="text-white">
-        <p className="text-white bg-red-500 p-3">
-
-        {PayStatus}
-        </p>
+        <p className="text-white bg-red-500 p-3">{PayStatus}</p>
         <button className="px-1 py-4 bg-green-500" onClick={() => handleback()}>
           بازگشت به صفحه اصلی
         </button>
