@@ -41,26 +41,40 @@ const Finall = ({ Authority, Status }) => {
   return (
     <div>
       <p className="text-white">
-        <p className="text-white bg-red-500 p-3">{PayStatus}</p>
+        <p
+          className={`text-white bg-red-500 p-3 ${
+            Isvalid ? "bg-red-500" : "bg-green-500"
+          }`}
+        >
+          {PayStatus}
+        </p>
         {Isvalid ? (
-          <>
-            <p>از کد زیر عکس بگیرید بلیط ورود و شام شما این میباشد.</p>
+          <div className="bg-white p-5">
+            <p className="text-red-500">
+               از کد زیر عکس بگیرید بلیط ورود و شام شما این میباشد.
+               هنگام ورود حتما آنرا به همراه داشته باشید.
+            </p>
             {QrcodeImg.length > 0 ? (
-              <img src={QrcodeImg} alt="QrcodeImg" />
+              <img src={QrcodeImg} className="w-[50vw] h-[50vh]" alt="QrcodeImg" />
             ) : (
               <p>در حال ساخت بلیط منتظر بمانید.</p>
             )}
-          </>
+          </div>
         ) : (
-          <p>
-            {" "}
-            برای ثبت نام و دسترسی به qrcode عملیات ثبت نام را دوباره انجام دهید.{" "}
-          </p>
+          <div className="bg-white w-[50vw] p-5 absolute right-[25vw] mt-10 text-black text-center font-vazir text-2xl ">
+            <p>
+              {" "}
+              برای ثبت نام و دسترسی به qrcode عملیات ثبت نام را دوباره انجام
+              دهید.{" "}
+            </p>
+          </div>
         )}
-        <button className="px-1 py-4 bg-green-500" onClick={() => handleback()}>
-          1 بازگشت به صفحه اصلی
-        </button>
       </p>
+        <div className="flex items-center justify-center">
+        <button className="px-10 py-2 bg-green-500 rounded-lg font-vazir mt-[50vh]" onClick={() => handleback()}>
+           بازگشت به صفحه اصلی
+        </button>
+        </div>
     </div>
   );
 };
