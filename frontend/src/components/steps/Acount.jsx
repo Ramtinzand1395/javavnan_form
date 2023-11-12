@@ -35,10 +35,6 @@ const Acount = () => {
           دلیلی صفحه را رفرش کردید عملیات ثبت نام را از اول انجام دهدید
         </p>
         <p className="mt-2">
-          <span className="text-red-500 font-semibold">تذکر3 :</span> هر بار ثبت
-          نام برای یک نفر می باشد
-        </p>
-        <p className="mt-2">
           <span className="text-red-500 font-semibold">تذکر6 :</span> 
           در صورت بروز هر گونه مشکل در روند ثبت نام با شماره 09138433385 در ارتباط باشید
         </p>
