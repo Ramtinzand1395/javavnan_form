@@ -52,6 +52,7 @@ const PayUp = () => {
   }, [UserId]);
 
   const handlepayup = async (dinner) => {
+    localStorage.setItem("user",dinner);
     try {
       const { data, status } = await transactionService(dinner);
       if(status === 200){
