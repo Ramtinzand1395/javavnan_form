@@ -190,10 +190,13 @@ exports.createTransaction = async (req, res) => {
 };
 
 exports.zarinresponse = async (req, res) => {
-  console.log(req.body)
-
-  console.log(req.params)
   const { query } = req.body;
-
- res.send(query)
+try {
+  if(zarinpal.didUserPaySuccessfully(query)){
+    res.status(200).send("ok")
+  }
+} catch (err) {
+  console.log(err);
+  res.status(400).send(err);
+}
 };
