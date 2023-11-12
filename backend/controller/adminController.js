@@ -194,6 +194,8 @@ exports.zarinresponse = async (req, res) => {
 try {
   if(zarinpal.didUserPaySuccessfully(query)){
     res.status(200).send("ok")
+  }else{
+    res.send("Nok")
   }
 } catch (err) {
   console.log(err);
