@@ -120,7 +120,6 @@ const Dinner = () => {
                 </span>
               </label>
               <ErrorMessage name="dinner" component="div" className="text-red-500 text-xs" />
-
               {/**noshidani */}
               <div className="mb-2">
                 <label
