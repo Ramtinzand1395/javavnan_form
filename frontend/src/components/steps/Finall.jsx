@@ -49,7 +49,6 @@ const Finall = ({ Authority, Status }) => {
           }`}
         >
           {PayStatus}
-          1
         </p>
         {Isvalid ? (
           <div className="bg-white p-5 text-center font-vazir text-2xl">
