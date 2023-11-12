@@ -13,11 +13,11 @@ const Dinner = () => {
   const getPrice = (values) => {
     let totalPrice = 0;
     if (values.dinner === "nodinner") {
-      totalPrice += 89000;
+      totalPrice += 49000;
     } else if (values.dinner === "olvie") {
-      totalPrice += 110000;
+      totalPrice += 96000;
     } else if (values.dinner === "calbas") {
-      totalPrice += 136000;
+      totalPrice += 70000;
     }
 
     if (values.drinks === "cocakola") {
@@ -84,9 +84,9 @@ const Dinner = () => {
                   value="nodinner"
                   className="ml-2"
                 />
-                بدون شام ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                بدون شام ( بلیط ورودی  )
                 <span className="text-red-500 mx-2 text-xs font-medium ">
-                  89,000 تومان
+                  49,000 تومان
                 </span>
               </label>
 
@@ -99,9 +99,9 @@ const Dinner = () => {
                   value="olvie"
                   className="ml-2"
                 />
-                الوویه ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                ساندویچ الوویه 
                 <span className="text-red-500 mx-2 text-xs font-medium ">
-                  110,000 تومان
+                  70,000 تومان
                 </span>
               </label>
 
@@ -114,9 +114,9 @@ const Dinner = () => {
                   value="calbas"
                   className="ml-2"
                 />
-                ساندویچ کالباس ( بلیط ورودی به همراه فینگرفود و تم بزم )
+                ساندویچ کالباس 
                 <span className="text-red-500 mx-2 text-xs font-medium ">
-                  136,000 تومان
+                  96,000 تومان
                 </span>
               </label>
               <ErrorMessage name="dinner" component="div" className="text-red-500 text-xs" />
