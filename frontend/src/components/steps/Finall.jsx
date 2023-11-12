@@ -67,7 +67,7 @@ const Finall = ({ Authority, Status }) => {
             )}
           </div>
         ) : (
-          <div className="bg-white w-[50vw] p-5 absolute right-[25vw] mt-10 text-black text-center font-vazir text-2xl ">
+          <div className="bg-white w-[50vw] p-5 absolute right-[25vw] mt-10 text-black text-center font-vazir text-base md:text-2xl ">
             <p>
               {" "}
               برای ثبت نام و دسترسی به qrcode عملیات ثبت نام را دوباره انجام
