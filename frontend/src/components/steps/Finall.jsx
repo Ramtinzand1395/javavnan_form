@@ -78,7 +78,7 @@ const Finall = ({ Authority, Status }) => {
       </p>
       <div className="flex items-center justify-center">
         <button
-          className="px-10 py-2 bg-green-500 rounded-lg font-vazir mt-[25vh]"
+          className="px-10 py-2 bg-green-500 rounded-lg font-vazir mt-10"
           onClick={() => handleback()}
         >
           بازگشت به صفحه اصلی
