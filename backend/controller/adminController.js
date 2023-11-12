@@ -193,9 +193,9 @@ exports.zarinresponse = async (req, res) => {
   const { query } = req.body;
 try {
   if(zarinpal.didUserPaySuccessfully(query)){
-    res.status(200).send("ok")
+    res.status(200).send("عملیات ثبت نام موفقیت آمیز بود")
   }else{
-    res.send("Nok")
+    res.status(401).send("عملیات ثبت نام موفقیت آمیز نبود دوباره تلاش کنید.")
   }
 } catch (err) {
   console.log(err);
