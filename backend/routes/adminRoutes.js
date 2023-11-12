@@ -39,6 +39,6 @@ router.post("/pay-up",  adminController.createTransaction);
 
 
 //create QrCode
-router.post("/response",  adminController.zarinresponse);
+router.get("/response",  adminController.zarinresponse);
 
 module.exports = router;
